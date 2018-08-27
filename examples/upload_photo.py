@@ -24,11 +24,7 @@ while True:
     
     print("Publishing image " + str(i) + "...")
     final_path = base_path + str(i) + ".jpg"
-<<<<<<< HEAD
     caption = "tags"
-=======
-    caption = "Follow #worldtelescope, #world, #worldtravel, #travel, #love, #food, #animals, #instagood, #photooftheday, #beautiful, #happy, #cute, #like4like, #followme, #picoftheday, #follow, #me, #summer, #instadaily, #nature, #fun, #follow4follow, #tagsforlikes, #nofilter, #amazing, #photography, #photo, #bestoftheday, #f4f, #cool"
->>>>>>> 1f25788ae4cf7fef2e8dbd8a9ea951711bc914c9
     try:
         InstagramAPI.uploadPhoto(final_path, caption=caption)
     except Exception as e:
