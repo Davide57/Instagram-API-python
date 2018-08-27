@@ -15,16 +15,17 @@ import sys
 from datetime import datetime
 import calendar
 import os
+import time
 from requests_toolbelt import MultipartEncoder
 
 # Turn off InsecureRequestWarning
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
-try:
-    from moviepy.editor import VideoFileClip
-except ImportError:
-    print("Fail to import moviepy. Need only for Video upload.")
+#try:
+#    from moviepy.editor import VideoFileClip
+#except ImportError:
+#    print("Fail to import moviepy. Need only for Video upload.")
     
 
 # The urllib library was split into other modules from Python 2 to Python 3
@@ -946,6 +947,7 @@ class InstagramAPI:
         return body
 
     def SendRequest(self, endpoint, post=None, login=False):
+        time.sleep(3)
         verify = False  # don't show request warning
 
         if (not self.isLoggedIn and not login):
@@ -966,8 +968,8 @@ class InstagramAPI:
                     response = self.s.get(self.API_URL + endpoint, verify=verify)
                 break
             except Exception as e:
-                print('Except on SendRequest (wait 60 sec and resend): ' + str(e))
-                time.sleep(60)
+                print('Except on SendRequest (wait 10 sec and resend): ' + str(e))
+                time.sleep(10)
 
         if response.status_code == 200:
             self.LastResponse = response
