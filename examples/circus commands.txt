@@ -1,0 +1,5 @@
+Start a Daemon:
+circusd circus.ini --daemon
+
+Check Daemon:
+circusctl
